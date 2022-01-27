@@ -19,7 +19,7 @@ function closeMenu() {
     navMenu.classList.remove("active");
 }
 
-// Dynamic Navigation Underline on Sroll //
+// Dynamic Navigation Overlay on Sroll //
 
 const sections = document.querySelectorAll('section');
 const navLi = document.querySelectorAll('nav ul li');
@@ -29,7 +29,7 @@ window.addEventListener('scroll', ()=> {
     sections.forEach( section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
-        if(pageYOffset >= (sectionTop - sectionHeight / 3)) {
+        if(pageYOffset >= (sectionTop - sectionHeight / 5)) {
             current = section.getAttribute('id');
         }
     })
@@ -41,3 +41,12 @@ window.addEventListener('scroll', ()=> {
        }
     })
 });
+
+// Add Background to Navigation on Scroll //
+
+window.addEventListener('scroll', function (){
+    let header = document.querySelector('header');
+    let windowPosition =  window.scrollY > 200;
+    header.classList.toggle('scrolling-active', windowPosition);
+})
+
