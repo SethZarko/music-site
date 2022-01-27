@@ -101,7 +101,7 @@ p {
 
 .btn-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .tickets {
@@ -186,7 +186,13 @@ p {
   }
 
   .tickets {
+    margin-top: 3em;
     margin-bottom: 1em;
+    margin-right: 0;
+  }
+
+  .listen {
+    margin-left: 0;
   }
 }
 @media only screen and (max-width: 775px) {
