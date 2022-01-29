@@ -15,10 +15,15 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
 header {
   position: fixed;
   width: 100%;
-  background-color: black transparent;
+  z-index: 2;
 }
 
 li {
@@ -30,15 +35,31 @@ a {
 }
 
 section {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-color: rgb(32, 32, 32);
   align-items: center;
+  position: relative;
 }
 
 section.home {
   background: none;
-  height: 100vh;
+  position: relative;
+  height: 100%;
+}
+
+section.footer {
+  height: 25%;
+}
+
+section h1 {
+  color: white;
+  letter-spacing: 2px;
+  font-weight: 500;
+  font-size: 4rem;
+  text-align: center;
+  margin-top: 0.8em;
+  margin-bottom: 0.75em;
 }
 
 /* Navigation */
@@ -48,26 +69,6 @@ section.home {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem;
-}
-
-.scrolling-active {
-  background-color: black;
-  box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
-  transition: 0.4s ease;
-}
-
-.hamburger {
-  display: none;
-}
-
-.bar {
-  display: block;
-  width: 25px;
-  height: 3px;
-  margin: 5px auto;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background-color: #101010;
 }
 
 .nav-menu {
@@ -91,13 +92,13 @@ section.home {
 
 .nav-item.home.active {
   border: solid 2px white;
-  background-color: rgba(128, 128, 128, 0.527);
+  background-color: rgba(128, 128, 128, 0.308);
   padding: 0.3em;
   transition: 1s ease background-color;
 }
 
 .nav-item.bio.active {
-  background-color: rgba(220, 20, 60, 0.315);
+  background-color: rgba(220, 20, 60, 0.253);
   padding: 1em 2em;
   transition: 1s ease background-color;
 }
@@ -107,6 +108,7 @@ section.home {
   font-size: 1rem;
   font-weight: 500;
   color: #ffffff;
+  text-shadow: black 1px 1px;
   letter-spacing: 1px;
   transition: 1s ease;
 }
@@ -133,6 +135,28 @@ section.home {
 
 .nav-link:hover::after {
   transform: scale(1, 1);
+}
+
+.scrolling-active {
+  background-color: rgba(0, 0, 0, 0.61);
+  box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+  transition: 0.4s ease;
+  position: fixed;
+  border-bottom: solid 2px rgba(220, 20, 60, 0.438);
+}
+
+.hamburger {
+  display: none;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #101010;
 }
 
 .nav-logo h1 {
@@ -208,7 +232,7 @@ p {
 
 .scrolldown {
   position: relative;
-  bottom: 20px;
+  bottom: 185px;
   left: 50.5%;
   width: 40px;
   height: 40px;
@@ -229,7 +253,7 @@ p {
 }
 
 .scrolldown span:nth-child(1) {
-  transform: translate(-15px, -15px);
+  transform: translate(-12px, -12px);
   animation-delay: -0.4s;
 }
 .scrolldown span:nth-child(2) {
@@ -237,7 +261,7 @@ p {
   animation-delay: -0.2s;
 }
 .scrolldown span:nth-child(3) {
-  transform: translate(15px, 15px);
+  transform: translate(12px, 12px);
   animation-delay: 0s;
 }
 
@@ -258,6 +282,111 @@ p {
     left: 5px;
     opacity: 0;
   }
+}
+
+/* Tour Dates */
+
+.tour-container {
+  height: 100vh;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.tour-title-container {
+  flex-basis: 100%;
+}
+
+.tour-container h3 {
+  color: white;
+  letter-spacing: 3.5px;
+  font-size: 2.25rem;
+  padding: 0;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+.tour-container .col1 {
+  background: #c31432;
+  background: -webkit-linear-gradient(to right, #240b36, #c31432);
+  background: linear-gradient(to right, #240b36, #c31432);
+  border: solid 1px rgba(220, 20, 60, 0.226);
+  width: 300px;
+  padding: 0.5em;
+  min-height: 50%;
+  margin-bottom: 5em;
+  display: grid;
+  grid-template-columns: 200px;
+  justify-content: center;
+}
+
+.tour-container .col2 {
+  background: #c31432;
+  background: -webkit-linear-gradient(to right, #9e1130, #c31432);
+  background: linear-gradient(to right, #7a1c31, #c31432);
+  width: 300px;
+  padding: 0.5em;
+  min-height: 50%;
+  margin-bottom: 5em;
+  display: grid;
+  grid-template-columns: 250px;
+  justify-content: center;
+}
+.tour-container .col3 {
+  background: #c31432;
+  background: -webkit-linear-gradient(to left, #240b36, #c31432);
+  background: linear-gradient(to left, #240b36, #c31432);
+  border: solid 1px rgba(220, 20, 60, 0.226);
+  width: 300px;
+  padding: 0.5em;
+  min-height: 50%;
+  margin-bottom: 5em;
+  display: grid;
+  grid-template-columns: 250px;
+  justify-content: center;
+}
+
+.tourdesc {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.tourdate {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.venuelink {
+  color: white;
+  text-align: center;
+  border: solid 1px white;
+  transition: 0.5s ease;
+}
+
+.venuelink:hover {
+  background-color: rgba(202, 202, 202, 0.205);
+}
+
+.more-btn {
+  color: rgb(196, 196, 196);
+  align-self: center;
+  flex-basis: 100%;
+  text-align: center;
+  margin-bottom: 2em;
+  font-size: 3rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.more-btn:hover {
+  color: #c31432;
+  color: -webkit-linear-gradient(to top, #240b36, #c31432);
+  color: linear-gradient(to top, #240b36, #c31432);
 }
 
 /* Media Queries */
@@ -336,13 +465,16 @@ p {
     margin-left: 0;
   }
 }
-@media only screen and (max-width: 775px) {
+@media only screen and (max-width: 999px) and (min-width: 582px) {
   .title {
     font-size: 6rem;
   }
 
   p {
     font-size: 1.5rem;
+  }
+  #tourdates {
+    height: 1400px;
   }
 }
 
@@ -353,6 +485,10 @@ p {
 
   .btn-container {
     margin-bottom: 18em;
+  }
+
+  #tourdates {
+    height: 2000px;
   }
 }
 
@@ -370,6 +506,12 @@ p {
   }
 }
 
+@media only screen and (max-width: 450px) {
+  #tourdates {
+    height: 2100px;
+  }
+}
+
 @media only screen and (max-width: 387px) {
   .title {
     font-size: 3rem;
@@ -377,5 +519,11 @@ p {
 
   p {
     font-size: 0.8rem;
+  }
+}
+
+@media only screen and (max-width: 374px) {
+  #tourdates {
+    height: 2200px;
   }
 }
